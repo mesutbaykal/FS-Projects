@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Game</title>
+  </head>
+  <body>
+    <script>
+      const num = Math.round(Math.random() * 100);
+      console.log(`Number is : ${num}`);
+
+      for (let trial = 5; trial > 0; trial--) {
+        const enteredNum = +prompt(
+          `Try to find the number between 0-100.You have ${trial} trial left!`
+        );
+
+        if (enteredNum < 0 || enteredNum > 100) {
+          alert("You should enter between 0-100");
+          trial++;
+        } else if (enteredNum > num) {
+          alert("Sorry..You could not find...Decrease your guess");
+        } else if (enteredNum < num) {
+          alert("Sorry..You could not find...Increase your guess");
+        } else if (enteredNum === num) {
+          alert(`Bravo..You found...Number was : ${num}`);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
